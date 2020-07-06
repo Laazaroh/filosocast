@@ -1,285 +1,70 @@
-{% load static %} {% load humanize %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <!-- Site made with Mobirise Website Builder v4.12.4, https://mobirise.com -->
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="generator" content="Mobirise v4.12.4, mobirise.com" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, minimum-scale=1"
-        />
-        <link
-            rel="shortcut icon"
-            href="{% static 'assets/images/pp-1.jpg' %}"
-            type="image/x-icon"
-        />
-        <meta
-            name="description"
-            content="Aqui você encontra entretenimento, aprendizado e muito da cultura que rodeia toda a filosofia"
-        />
+{% load static %} {% load humanize %} {% include 'parciais/_nav.html' %}
+<head>
+    <link
+        rel="stylesheet"
+        href="{% static 'assets/audioplayer/css/audioplayer.css'%}"
+    />
+</head>
 
-        <title>FilosoCast´s - GEFA</title>
-        <link
-            rel="stylesheet"
-            href="{% static 'assets/web/assets/mobirise-icons/mobirise-icons.css' %}"
-        />
-        <link
-            rel="stylesheet"
-            href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}"
-        />
-        <link
-            rel="stylesheet"
-            href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}"
-        />
-        <link
-            rel="stylesheet"
-            href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}"
-        />
-        <link
-            rel="stylesheet"
-            href="{% static 'assets/tether/tether.min.css' %}"
-        />
-        <link
-            rel="stylesheet"
-            href="{% static 'assets/dropdown/css/style.css' %}"
-        />
-        <link
-            rel="stylesheet"
-            href="{% static 'assets/socicon/css/styles.css' %}"
-        />
-        <link
-            rel="stylesheet"
-            href="{% static 'assets/theme/css/style.css' %}"
-        />
-        <link
-            rel="stylesheet"
-            href="{% static 'assets/audioplayer/css/audioplayer.css' %}"
-        />
-        <link
-            rel="preload"
-            as="style"
-            href="{% static 'assets/mobirise/css/mbr-additional.css' %}"
-        />
-        <link
-            rel="stylesheet"
-            href="{% static 'assets/mobirise/css/mbr-additional.css' %}"
-            type="text/css"
-        />
-    </head>
-    <body>
-        <section class="menu cid-s3HiB41A7d" once="menu" id="menu2-0">
-            <nav
-                class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm"
-            >
-                <button
-                    class="navbar-toggler navbar-toggler-right"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
+<section class="mbr-section content5 cid-s3HMY9o63U" id="content5-p">
+    <div class="container">
+        <div class="media-container-row">
+            <div class="title col-12 col-md-8">
+                <h2
+                    class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-1"
                 >
-                    <div class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </button>
-                <div class="menu-logo">
-                    <div class="navbar-brand">
-                        <span class="navbar-logo">
-                            <a href="{% url 'index'%}">
-                                <img
-                                    src="{% static 'assets/images/pp-1.jpg' %}"
-                                    title="Logo"
-                                    style="height: 3.8rem;"
-                                />
-                            </a>
-                        </span>
-                    </div>
-                </div>
-                <div
-                    class="collapse navbar-collapse"
-                    id="navbarSupportedContent"
-                >
-                    <ul
-                        class="navbar-nav nav-dropdown nav-right"
-                        data-app-modern-menu="true"
+                    {{ podcast.titulo }}
+                </h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cid-s3HLQHE7AF" id="image1-m">
+    <figure class="mbr-figure container">
+        <div class="image-block" style="width: 84%;">
+            <img src="{{podcast.imagem.url}}" width="1400" title="" />
+        </div>
+    </figure>
+</section>
+
+<section class="mbr-section article content1 cid-s3HLWNCFsv" id="content2-n">
+    <div class="container">
+        <div class="media-container-row">
+            <div class="mbr-text col-12 col-md-8 mbr-fonts-style display-7">
+                <blockquote>
+                    <strong>{{podcast.descricao}}&nbsp;</strong>
+                </blockquote>
+            </div>
+        </div>
+        <div class="audio-container">
+            <audio class="audio" controls="controls">
+                <source src="{{podcast.audio.url}}" />
+            </audio>
+        </div>
+    </div>
+</section>
+
+<section class="mbr-section content8 cid-s3HM81iKqh" id="content8-o">
+    <div class="container">
+        <div class="media-container-row title">
+            <div class="col-12 col-md-8">
+                <div class="mbr-section-btn align-center">
+                    <a
+                        class="btn btn-primary display-4"
+                        href="http://soundcloud.com"
+                        >Ouça no Soundcloud</a
                     >
-                        <li class="nav-item">
-                            <a
-                                class="nav-link link text-black display-4"
-                                href="{% url 'sobre'%}"
-                                >Sobre</a
-                            >
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link link text-black display-4"
-                                href="{% url 'contato'%}"
-                            >
-                                Contato</a
-                            >
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link link text-black display-4"
-                                href="{% url 'podcasters'%}"
-                                >Podcasters</a
-                            >
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </section>
-
-        <section class="mbr-section content5 cid-s3HMY9o63U" id="content5-p">
-            <div class="container">
-                <div class="media-container-row">
-                    <div class="title col-12 col-md-8">
-                        <h2
-                            class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-1"
-                        >
-                            {{ podcast.titulo }}
-                        </h2>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cid-s3HLQHE7AF" id="image1-m">
-            <figure class="mbr-figure container">
-                <div class="image-block" style="width: 84%;">
-                    <img src="{{podcast.imagem.url}}" width="1400" title="" />
-                </div>
-            </figure>
-        </section>
-
-        <section
-            class="mbr-section article content1 cid-s3HLWNCFsv"
-            id="content2-n"
-        >
-            <div class="container">
-                <div class="media-container-row">
-                    <div
-                        class="mbr-text col-12 col-md-8 mbr-fonts-style display-7"
+                    <a
+                        class="btn btn-black-outline display-4"
+                        href="{{podcast.audio.url}}"
+                        download=""
+                        >Baixar Podcast</a
                     >
-                        <blockquote>
-                            <strong>{{podcast.descricao}}&nbsp;</strong>
-                        </blockquote>
-                    </div>
-                </div>
-                <div class="audio-container">
-                    <audio class="audio" controls="controls">
-                        <source src="{{podcast.audio.url}}" />
-                    </audio>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <section class="mbr-section content8 cid-s3HM81iKqh" id="content8-o">
-            <div class="container">
-                <div class="media-container-row title">
-                    <div class="col-12 col-md-8">
-                        <div class="mbr-section-btn align-center">
-                            <a
-                                class="btn btn-primary display-4"
-                                href="http://soundcloud.com"
-                                >Ouça no Soundcloud</a
-                            >
-                            <a
-                                class="btn btn-black-outline display-4"
-                                href="{{podcast.audio.url}}"
-                                download=""
-                                >Baixar Podcast</a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section once="footers" class="cid-s3HkcFYWfw" id="footer7-3">
-            <div class="container">
-                <div class="media-container-row align-center mbr-white">
-                    <div class="row row-links">
-                        <ul class="foot-menu">
-                            <li
-                                class="foot-menu-item mbr-fonts-style display-7"
-                            >
-                                <a
-                                    style="color: white;"
-                                    href="{% url 'episodios' %}"
-                                    >Episódios</a
-                                >
-                                <br />
-                            </li>
-                            <li
-                                class="foot-menu-item mbr-fonts-style display-7"
-                            >
-                                <a
-                                    style="color: white;"
-                                    href="{% url 'contato' %}"
-                                    >Contato</a
-                                ><br />
-                            </li>
-                            <li
-                                class="foot-menu-item mbr-fonts-style display-7"
-                            >
-                                <a
-                                    style="color: white;"
-                                    href="{% url 'sobre' %}"
-                                    >Sobre</a
-                                >
-                            </li>
-                            <li
-                                class="foot-menu-item mbr-fonts-style display-7"
-                            >
-                                <a
-                                    style="color: white;"
-                                    href="{% url 'podcasters' %}"
-                                    >Podcasters</a
-                                ><br />
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="row social-row">
-                        <div class="social-list align-right pb-2">
-                            <div class="soc-item pt-2">
-                                <a
-                                    href="https://www.instagram.com/gefa_filosofia/"
-                                    target="_blank"
-                                >
-                                    <span
-                                        class="mbr-iconfont mbr-iconfont-social socicon-instagram socicon"
-                                    ></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pt-3 row row-copirayt">
-                        <p
-                            class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7"
-                        >
-                            © Copyright 2020 Gefa - All Rights Reserved
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <script src="{% static 'assets/web/assets/jquery/jquery.min.js' %}"></script>
-        <script src="{% static 'assets/popper/popper.min.js' %}"></script>
-        <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
-        <script src="{% static 'assets/tether/tether.min.js' %}"></script>
-        <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
-        <script src="{% static 'assets/dropdown/js/nav-dropdown.js' %}"></script>
-        <script src="{% static 'assets/dropdown/js/navbar-dropdown.js' %}"></script>
-        <script src="{% static 'assets/touchswipe/jquery.touch-swipe.min.js' %}"></script>
-        <script src="{% static 'assets/theme/js/script.js' %}"></script>
-    </body>
-</html>
+{% include 'parciais/_footer.html' %}

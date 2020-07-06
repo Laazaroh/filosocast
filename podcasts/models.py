@@ -8,6 +8,7 @@ class Podcast(models.Model):
     autor = models.ForeignKey(Autor, on_delete=models.DO_NOTHING)
     data = models.DateTimeField(default=timezone.now())
     descricao = models.TextField()
+    excerto = models.TextField(max_length=250, default=None)
     imagem = models.ImageField(
         upload_to='podcast_img/%Y/%m/%d')
     audio = models.FileField(upload_to='podcast_audio/%Y/%m/%d')
