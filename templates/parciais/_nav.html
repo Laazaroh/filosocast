@@ -1,0 +1,82 @@
+{% load static %} {% load humanize %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Site made with Mobirise Website Builder v4.12.4, https://mobirise.com -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="generator" content="Mobirise v4.12.4, mobirise.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link rel="shortcut icon" href="{% static 'assets/images/pp-1.png' %}" type="image/x-icon" />
+    <meta name="description"
+        content="Aqui você encontra entretenimento, aprendizado e muito da cultura que rodeia toda a filosofia" />
+
+    <title>FilosoCast´s - GEFA</title>
+    <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons/mobirise-icons.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/tether/tether.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/dropdown/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/socicon/css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}" />
+    <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css" />
+    <style>
+        .hover:hover {
+            text-decoration: underline;
+        }
+
+        .nav-link {
+            color: #D5CB0B !important
+        }
+
+        .cid-s3HiB41A7d .nav-link:hover {
+            color: #b1a919 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="menu cid-s3HiB41A7d" once="menu" id="menu2-0">
+        <nav
+            class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span style="background-color: #b1a919 !important"></span>
+                    <span style="background-color: #b1a919 !important"></span>
+                    <span style="background-color: #b1a919 !important"></span>
+                    <span style="background-color: #b1a919 !important"></span>
+                </div>
+            </button>
+            <div class="menu-logo">
+                <div class="navbar-brand">
+                    <span class="navbar-logo">
+                        <a href="{% url 'index'%}">
+                            <img src="{% static 'assets/images/pp-1.png' %}" title="Logo" style="height: 3.8rem;" />
+                        </a>
+                    </span>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
+                    <li class="nav-item">
+                        <a class="nav-link link  display-4" href="{% url 'sobre'%}">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link  display-4" href="{% url 'contato'%}">
+                            Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link  display-4" href="{% url 'podcasters'%}">Podcasters</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+</body>
+
+</html>

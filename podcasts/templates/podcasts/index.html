@@ -1,0 +1,92 @@
+       {% load static %}
+       {% load humanize %}
+       {% include 'parciais/_nav.html' %}
+
+        <section class="mt-5 pt-5 cid-s3HjqQb3x6" id="image2-1">
+            <figure class="mbr-figure">
+                <div class="image-block" style="width: 100%;">
+                    <img
+                        src="{% static 'assets/images/microfone-usb-azul-yeti-x-ideal-para-podcasts-e-streaming-1280x720.jpg' %}"
+                    />
+                    <figcaption
+                        class="mbr-figure-caption mbr-figure-caption-over"
+                    >
+                        <div
+                            style="text-shadow: 2px 2px 0 #464646;"
+                            class="pb-5 px-3 mbr-white align-center mbr-fonts-style display-1"
+                        >
+                            FilosoCast's
+                        </div>
+                    </figcaption>
+                </div>
+            </figure>
+        </section>
+
+        <section class="features3 cid-s3Hk7SbGsC" id="features3-2">
+            <div class="container">
+                <h1 class="mbr-fonts-style display-2 p-3">
+                    Episódios Recentes
+                </h1>
+                {% if not podcasts %}
+                    <h5 class="mbr-fonts-style display-5 p-3">Ainda não existem podcasts no ar!</h5>
+                {% endif%}
+                <div class="media-container-row pb-3">
+                    {% for pod in podcasts|slice:":3" %} 
+                    <div class="card p-3 col-12 col-md-6 col-lg-4">
+                        <div class="card-wrapper">
+                            <div class="card-img">
+                                <img src="{{ pod.imagem.url }}" title="" />
+                            </div>
+                            <div class="card-box">
+                                <h4
+                                    style="font-size: larger;"
+                                    class="card-title mbr-fonts-style display-7"
+                                >
+                                    {{pod.titulo}}
+                                </h4>
+                                <h6
+                                    style="font-size: small !important;"
+                                    class="pt-2 mbr-text mbr-fonts-style display-7"
+                                >
+                                    {{pod.autor}}
+                                </h6>
+                                <p
+                                    style="
+                                        padding: 0 !important;
+                                        padding-bottom: 0.5rem !important;
+                                    "
+                                    class="mbr-fonts-style display-7"
+                                >
+                                    {{pod.excerto}}
+                                </p>
+                                <small
+                                    style="font-size: smaller;"
+                                    class="mbr-text mbr-fonts-style display-7"
+                                    >{{pod.data|naturalday}}</small
+                                >
+                            </div>
+                            <div class="mbr-section-btn text-center">
+                                <a
+                                    href="{% url 'podcast' pod.id%}"
+                                    class="btn btn-primary display-4"
+                                    >Ouvir</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% if podcasts %}
+                <a
+                    class="p-3 hover"
+                    style="font-size: x-large; color: #D5CB0B ;"
+                    href="{% url 'episodios'%}"
+                    >Ver Todos</a
+                >
+                {% endif %}
+            </div>
+        </section>
+
+        {% include 'parciais/_footer.html' %}
+
+        

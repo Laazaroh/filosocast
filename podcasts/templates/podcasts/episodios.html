@@ -1,0 +1,110 @@
+{% load static %} {% load humanize %} {% include 'parciais/_nav.html' %}
+
+<section
+    style="min-height: 800px;"
+    class="mt-5 features3 cid-s3Hk7SbGsC"
+    id="features3-2"
+>
+    <div class="container">
+        <div class="form-group mb-3">
+            <h1 class="mbr-fonts-style display-2 p-3">
+                Todos os Episódios
+            </h1>
+            {% if not podcasts %}
+            <h5 class="mbr-fonts-style display-5 p-3">
+                Ainda não existem podcasts no ar!
+            </h5>
+            {% endif%}
+        </div>
+
+        <div
+            class="media-container-row pb-3"
+            style="display: flex; flex-wrap: wrap; justify-content: right;"
+        >
+            {% for pod in podcasts %}
+            <div class="card p-3 col-12 col-md-6 col-lg-4">
+                <div class="card-wrapper">
+                    <div class="card-img">
+                        <img src="{{ pod.imagem.url }}" title="" />
+                    </div>
+                    <div class="card-box">
+                        <h4
+                            style="font-size: larger;"
+                            class="card-title mbr-fonts-style display-7"
+                        >
+                            {{pod.titulo}}
+                        </h4>
+                        <h6
+                            style="font-size: small !important;"
+                            class="pt-2 mbr-text mbr-fonts-style display-7"
+                        >
+                            {{pod.autor}}
+                        </h6>
+                        <p
+                            style="
+                                padding: 0 !important;
+                                padding-bottom: 0.5rem !important;
+                            "
+                            class="mbr-fonts-style display-7"
+                        >
+                            {{pod.excerto}}
+                        </p>
+                        <small
+                            style="font-size: smaller;"
+                            class="mbr-text mbr-fonts-style display-7"
+                            >{{pod.data|naturalday}}</small
+                        >
+                    </div>
+                    <div class="mbr-section-btn text-center">
+                        <a
+                            href="{% url 'podcast' pod.id%}"
+                            class="btn btn-primary display-4"
+                            >Ouvir</a
+                        >
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% if is_paginated %}
+<div class="pagination p-3">
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1">&laquo;</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&lsaquo;</a>
+        </li>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+
+        {% if page_obj.number == num %}
+        <li class="page-item active">
+            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+        </li>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+        </li>
+        {% endif %}
+
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">&rsaquo;</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
+{% endif %}
+
+    </div>
+</section>
+
+{% include 'parciais/_footer.html' %}
